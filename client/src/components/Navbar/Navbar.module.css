@@ -1,0 +1,39 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(12, 12, 12);
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .navbarLogo img {
+    width: 130px;
+    height: 70px;
+  }
+  
+  .navbarLinks a {
+    color: white;
+    margin-left: 50px;
+    margin-right: 20px;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  
+  
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .navbarLinks {
+      margin-top: 10px;
+    }
+  
+    .navbarLinks a {
+      display: block;
+      margin: 5px 0;
+    }
+  }

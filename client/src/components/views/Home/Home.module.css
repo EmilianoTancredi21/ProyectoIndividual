@@ -1,0 +1,8 @@
+body{
+    background-image: url("https://res.cloudinary.com/dg8awhbvm/image/upload/v1686421009/Proyecto%20JS%20vanilla/18477663_rnmsgh.jpg");
+    background-size: cover;
+}
+
+.loading{
+    margin-top: 80px;
+}

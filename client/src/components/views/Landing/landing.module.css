@@ -1,0 +1,141 @@
+.logoTitle{
+  display: flex;
+}
+
+.logoTitle img{
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.logoTitle h4{
+  color: white;
+  font-weight: 100;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.iconMenu{
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  color: white;
+  font-size: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+.iconMenu:hover{
+  background: rgba(255, 255, 255, 0.4);
+}
+
+
+
+/*Portada*/
+
+
+.containerPortada{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url("https://res.cloudinary.com/dg8awhbvm/image/upload/v1685995116/Proyecto%20JS%20vanilla/1253775_cee0ww.jpg");
+  background-size: 150%;
+  animation: movimiento 20s infinite linear alternate;  
+}
+
+@keyframes movimiento{
+  from{
+      background-position: bottom left;
+  }to{
+      background-position: top right;
+  }
+}
+
+
+.capaGradient{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  /* background: -webkit-linear-gradient(left, black, #055aa5); */
+  background-color: rgba(255, 255, 255, 0.281);
+  opacity: 0.5;
+}
+
+.containerDetails{
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  position: relative;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.details img {
+  width: 500px;
+}
+
+
+.details{
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  top: 20px;
+  color: white;
+}
+
+
+
+.details p{
+  margin-top: 10px;
+  font-size: 50px;
+  font-weight: 100;
+  margin-left: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.details button{
+  padding: 10px 20px;
+  width: 230px;
+  font-size: 16px;
+  background: none;
+  border-style: none;
+  border: 1px solid white;
+  color: white;
+  margin-top: 20px;
+  transition: background 300ms;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.details button:hover{
+  background: white;
+  color: black;
+}
+
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/*Articulo*/
+
+main{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+
+
+@media screen and (max-width: 500px){
+  .details p{
+      font-size: 18px;
+  }
+}

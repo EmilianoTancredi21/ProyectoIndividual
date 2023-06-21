@@ -1,0 +1,133 @@
+.container{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  width: 100%;
+}
+
+.container img{
+  max-width: 1000px;
+  height: 783px;
+  margin-top: 30px;
+}
+
+.driverForm {
+  width: 800px;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.589);
+}
+
+.formField {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+input[type="text"] {
+  width: 30%;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #da1111;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 130px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button:hover{
+  background-color: black;
+}
+
+.error {
+  color: rgb(255, 95, 3);
+  font-size: 13px;
+  margin-top: 5px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 700;
+}
+
+.titleForm{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+.formImage{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.5rem;
+}
+
+.checkbox{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  font-size: 2.5rem;
+}
+
+.checkboxInput {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.selector{
+  color: black;
+}
+
+.checkboxListContainer {
+  max-height: 200px; /* Altura máxima para mostrar antes de activar el scroll */
+  overflow-y: auto; /* Activar el scroll vertical si se supera la altura máxima */
+  margin-bottom: 15px;
+}
+
+
+
+.checkboxContainer {
+  margin-top: 1.5rem;
+}
+
+.checkboxLabel {
+  font-weight: bold;
+}
+
+.checkboxList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Organiza las columnas automáticamente */
+  grid-gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.checkboxItem {
+  display: flex;
+  align-items: center;
+}
+
+.checkboxInput {
+  margin-right: 0.5rem;
+}
+
+.checkboxText {
+  font-size: 0.9rem;
+}
