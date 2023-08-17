@@ -6,7 +6,10 @@ import Filters from "../../Filters/Filters";
 import Cards from "../../Cards/Cards";
 import Paginado from "../../Paginado/Paginado";
 
+
 const Home = () => {
+
+
   const dispatch = useDispatch();
   const allDrivers = useSelector((state) => state.allDrivers);
 
@@ -29,8 +32,14 @@ const Home = () => {
   };
 
   useEffect(() => {
-    dispatch(getAllDrivers());
-  }, []);
+    if(!driverFilters.length){
+      dispatch(getAllDrivers());
+    }
+  }, [dispatch, driverFilters]);
+  
+  useEffect(() => {
+    setCurrentPage(1); // Reiniciar la página actual a 1 cuando los conductores filtrados cambien
+  }, [driverFilters]);
 
   const applyFilters = () => {
     if (driverFilters.length > 0) {
@@ -69,4 +78,3 @@ const Home = () => {
 };
 
 export default Home;
-

@@ -28,16 +28,7 @@ const FormPage = () => {
     dispatch(GetAllTeams());
   }, []);
 
-  // const validateField = (fieldName) => {
-  //   let error = "";
-  //   const value = driver[fieldName].trim();
-
-  //   if (value === "") {
-  //     error = `El campo ${fieldName} es obligatorio.`;
-  //   }
-
-  //   return error;
-  // };
+ 
 
   const validateField = (fieldName) => {
     let error = "";

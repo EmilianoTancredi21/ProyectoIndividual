@@ -12,26 +12,31 @@ import {
 const initialState = {
   allDrivers: [],
   teams: [],
-  driverFilters: []
+  driverFilters: [],
+  driversCopy: []
 }
 
+
 // Función auxiliar para verificar si un driver creado en la base de datos está asociado con el equipo seleccionado
-const isDriverInTeam = (driver, teamName) => {
-  if (driver.createInDb) {
-    return driver.Teams.some(team => team.name === teamName);
-  }
-  return false;
-};
+// const isDriverInTeam = (driver, teamName) => {
+//   if (driver.createInDb) {
+//     return driver.Teams.some(team => team.name === teamName);
+//   }
+//   return false;
+// };
 
 
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+
     case GET_ALL_DRIVERS:
       return {
         ...state,
         allDrivers: action.payload,
         driverFilters: action.payload,
+
+        driversCopy: action.payload,
       };
 
     case GET_FILTER_CREATED_DRIVERS:
@@ -47,10 +52,12 @@ const rootReducer = (state = initialState, action) => {
         driverFilters: filterOrigin,
       };
 
+
+
     case GET_DRIVER_BYNAME:
       return {
         ...state,
-        allDrivers: action.payload,
+        // allDrivers: action.payload,
         driverFilters: action.payload,
       };
 
@@ -59,6 +66,9 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         teams: action.payload,
       };
+
+
+  
 
     case FILTER_BY_DOB:
       const dobFilteredDrivers = [...state.driverFilters];
@@ -74,16 +84,42 @@ const rootReducer = (state = initialState, action) => {
         };
       }
 
+
+
+    // case GET_FILTER_BY_TEAMS:
+    //   const team = action.payload;
+    //   const filteredTeam = state.driverFilters.filter((t) => {
+    //     const teamsArray = t.teams ? t.teams.split(",").map((team) => team.trim()) : []
+    //     return teamsArray.includes(team);
+    //   });
+    
+    //   if (!filteredTeam || filteredTeam.length === 0) {
+    //     alert("No drivers with this team, please reset filters");
+    //   }
+      
+    //   return {
+    //     ...state,
+    //     driverFilters: filteredTeam,
+    // };
+
     case GET_FILTER_BY_TEAMS:
-      const filteredDrivers = action.payload === "All"
-        ? state.allDrivers
-        : state.driverFilters.filter(driver =>
-            (driver.teams && driver.teams.includes(action.payload)) || isDriverInTeam(driver, action.payload)
-          );
+      const team = action.payload;
+      const filteredTeam = state.driverFilters.filter((t) => {    ///itero sobre cada filtro de conductor (t) en state.driverFilters y realizo una comprobación.
+        const teamsArray = t.Teams ? t.Teams.map(team => team.name) : []; ///: Si el filtro de conductor tiene un arreglo de equipos (t.Teams), se crea un nuevo arreglo teamsArray que contiene los nombres de los equipos. Si no hay un arreglo de equipos, se asigna un arreglo vacío.
+        const isDriverInTeamFromDb = t.createInDb && teamsArray.includes(team);///e verifica si el filtro de conductor fue creado en la base de datos (t.createInDb) y si el equipo proporcionado (team) se encuentra en teamsArray
+        const isDriverInTeamFromApi = t.teams && t.teams.includes(team);
+        return isDriverInTeamFromDb || isDriverInTeamFromApi;
+      });
+    
+      if (!filteredTeam || filteredTeam.length === 0) {
+        alert("No drivers with this team, please reset filters");
+      }
+      
       return {
         ...state,
-        driverFilters: filteredDrivers,
-      };
+        driverFilters: filteredTeam,
+    };
+
 
     case FILTER_DRIVER_ALP:
       const alphabeticFilteredDrivers = [...state.driverFilters];
@@ -106,10 +142,7 @@ const rootReducer = (state = initialState, action) => {
     case RESET_FILTER:
       return {
         ...state,
-        driverFilters: state.allDrivers,
-        filterByTeam: "All",
-        filterByDob: "0",
-        filterByCreated: "All",
+        driverFilters: state.allDrivers
       };
 
     default:

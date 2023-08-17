@@ -37,6 +37,7 @@ const Paginado = ({ currentPage, driversPerPage, allDrivers, paginado }) => {
     for (let i = startPage; i <= endPage; i++) {
       pageNumbers.push(i);
     }
+    
   };
 
   updatePageNumbers();

@@ -93,6 +93,7 @@ export const GetAllTeams = () => {
   });
 
 
+
   export function GetFilterCreatedDriver(infOrigin) { ///
     return  {
        type: GET_FILTER_CREATED_DRIVERS, 
@@ -100,12 +101,10 @@ export const GetAllTeams = () => {
     };
   }
 
+
+
   export const resetFilters = () => {
     return {
       type: RESET_FILTER
     };
   };
-
-
-
-

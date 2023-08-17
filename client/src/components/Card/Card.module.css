@@ -43,10 +43,9 @@ h2 {
 }
 
 .name{
-   /* Estilos del título */
-   color: white; /* Color del texto */
-   font-size: 16px; /* Tamaño de fuente */
-   margin: 0; /* Eliminar margen */
+   color: white; 
+   font-size: 16px; 
+   margin: 0; 
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -68,13 +67,13 @@ h2 {
 
 
 .imageOverlay {
-  /* Estilos del superpuesto de la imagen */
-  position: absolute; /* Posicionamiento absoluto */
-  top: 59%; /* Alineación verticalmente en la mitad */
-  left: 9%; /* Alineación a la izquierda */
-  width: 72.5%; /* Ancho completo */
-  text-align: center; /* Alineación del texto en el centro */
-  transform: translateY(-50%); /* Ajuste para centrar verticalmente */
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
-  padding: 1rem; /* Espaciado interno */
+  position: absolute; 
+  top: 59%; 
+  left: 9%; 
+  width: 72.5%;
+  text-align: center;
+  transform: translateY(-50%); 
+  background-color: rgba(0, 0, 0, 0.7); 
+  padding: 1rem; 
 }
+

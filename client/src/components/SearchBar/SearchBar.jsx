@@ -3,7 +3,10 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import {GetDriverByName} from "../../Redux/actions/actions";
 
+
 const SearchBar = () => {
+
+   
 
     const dispatch = useDispatch();
 
@@ -21,7 +24,7 @@ const SearchBar = () => {
     const handleSubmit = (event) => {
       event.preventDefault();
       dispatch(GetDriverByName(name))
-        .then(() => {
+      .then(() => {
           setError(false);
         })
         .catch((error) => {
@@ -53,4 +56,3 @@ const SearchBar = () => {
 }
 
 export default SearchBar;
-

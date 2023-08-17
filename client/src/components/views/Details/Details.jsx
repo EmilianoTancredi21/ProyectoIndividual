@@ -2,6 +2,8 @@ import axios from "axios";
 import styles from "../Details/Details.module.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import App from "../../../App"
 
 const noImage =
   "https://i.pinimg.com/736x/a4/fc/6c/a4fc6c0d3d05fe453cdbafba248ae20c.jpg";
@@ -57,7 +59,13 @@ const Details = () => {
               {driver.teams ? driver.teams : driver.Teams?.map((teams) => teams.name).join(", ")}
             </h2>
                 <h2 className={styles.titleID}>Driver ID: {driver.id}</h2>
+                <div>
+                  <button>
+                  <Link to="/home" element={<App />} style={{ textDecoration: 'none' }} className={styles.buttonDetail}>Go back</Link>
+                  </button>
+                </div>
           </div>
+          
         </>
       ) : (
         <h2 className={styles.noDrivers}>No drivers found.</h2>
