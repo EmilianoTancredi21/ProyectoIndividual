@@ -18,7 +18,7 @@ const Details = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${URL}/${id}`);
+        const response = await axios.get(`${URL}/drivers/${id}`);
         const data = response.data;
         if (Object.keys(data).length === 0) {
           setDriver(null);
