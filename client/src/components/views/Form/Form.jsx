@@ -12,6 +12,8 @@ const FormPage = () => {
 
   const [selectedTeams, setSelectedTeams] = useState([]);
 
+  const URL = "https://pi-server-jyus.onrender.com";
+
   const [driver, setDriver] = useState({
     forename: "",
     surname: "",
@@ -28,12 +30,10 @@ const FormPage = () => {
     dispatch(GetAllTeams());
   }, []);
 
- 
-
   const validateField = (fieldName) => {
     let error = "";
     const value = driver[fieldName].trim();
-  
+
     if (value === "") {
       error = `El campo ${fieldName} es obligatorio.`;
     } else if (fieldName === "forename" || fieldName === "surname") {
@@ -46,22 +46,20 @@ const FormPage = () => {
         error = "La descripción debe tener al menos 15 caracteres.";
       }
     }
-  
+
     return error;
   };
 
-
-
   const validateFields = () => {
     const errors = {};
-  
+
     Object.keys(driver).forEach((fieldName) => {
       const error = validateField(fieldName);
       if (error !== "") {
         errors[fieldName] = error;
       }
     });
-  
+
     setValidationErrors(errors);
   };
 
@@ -102,7 +100,7 @@ const FormPage = () => {
     try {
       const teamNames = selectedTeams;
 
-      const response = await axios.post("http://localhost:3001/drivers", {
+      const response = await axios.post(`${URL}/drivers`, {
         forename: driver.forename,
         surname: driver.surname,
         description: driver.description,
@@ -125,7 +123,6 @@ const FormPage = () => {
         description: "",
       });
 
-  
       setError(null);
       setValidationErrors({});
     } catch (error) {
