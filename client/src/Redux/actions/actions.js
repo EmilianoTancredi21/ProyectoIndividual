@@ -11,7 +11,7 @@ export const FILTER_BY_DOB = "FILTER_BY_DOB";
 export const GET_FILTER_CREATED_DRIVERS = "GET_FILTER_CREATED_DRIVERS";
 export const RESET_FILTER = "RESET_FILTER";
 
-const URL = "https://pi-server-jyus.onrender.com/";
+const URL = "https://pi-server-jyus.onrender.com";
 
 //Creamos las actions
 
