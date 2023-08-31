@@ -11,12 +11,14 @@ export const FILTER_BY_DOB = "FILTER_BY_DOB";
 export const GET_FILTER_CREATED_DRIVERS = "GET_FILTER_CREATED_DRIVERS";
 export const RESET_FILTER = "RESET_FILTER";
 
+const URL = "https://pi-server-jyus.onrender.com/";
+
 //Creamos las actions
 
 export const getAllDrivers = () => {
   return async (dispatch) => {
     try {
-      const response = await axios(`http://localhost:3001/drivers`);
+      const response = await axios(`${URL}/drivers`);
       dispatch({
         type: GET_ALL_DRIVERS,
         payload: response.data,
@@ -30,7 +32,7 @@ export const getAllDrivers = () => {
 export const GetAllTeams = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:3001/teams`);
+      const response = await axios.get(`${URL}/teams`);
       dispatch({
         type: GET_TEAMS,
         payload: response.data,
@@ -44,9 +46,7 @@ export const GetAllTeams = () => {
 export const GetDriverByName = (name) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/drivers/name?name=${name}`
-      );
+      const response = await axios.get(`${URL}/drivers/name?name=${name}`);
       dispatch({
         type: GET_DRIVER_BYNAME,
         payload: response.data,
