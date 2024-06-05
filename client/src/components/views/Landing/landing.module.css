@@ -1,109 +1,106 @@
-.logoTitle{
-  display: flex;
+.backgroundLanding {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: relative;
+  background-image: url("https://res.cloudinary.com/dg8awhbvm/image/upload/v1685995116/Proyecto%20JS%20vanilla/1253775_cee0ww.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: movimiento 20s infinite linear alternate;
 }
 
-.logoTitle img{
+.logoTitle {
+  display: flex;
+  align-items: center; /* Center elements vertically */
+}
+
+.logoTitle img {
   width: 40px;
   height: 40px;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 10px;
 }
 
-.logoTitle h4{
+.logoTitle h4 {
   color: white;
   font-weight: 100;
   margin-left: 10px;
-  margin-top: 20px;
+  margin-top: 0; /* Remove top margin */
 }
 
-.iconMenu{
+.iconMenu {
   position: absolute;
   right: 10px;
   top: 14px;
   color: white;
-  font-size: 28px;
+  font-size: 1.5rem; /* Use rem for better scaling */
   border: 1px solid rgba(255, 255, 255, 0.4);
   cursor: pointer;
 }
 
-.iconMenu:hover{
+.iconMenu:hover {
   background: rgba(255, 255, 255, 0.4);
 }
 
-
-
-/*Portada*/
-
-
-.containerPortada{
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  background-image: url("https://res.cloudinary.com/dg8awhbvm/image/upload/v1685995116/Proyecto%20JS%20vanilla/1253775_cee0ww.jpg");
-  background-size: 150%;
-  animation: movimiento 20s infinite linear alternate;  
-}
-
-@keyframes movimiento{
-  from{
-      background-position: bottom left;
-  }to{
-      background-position: top right;
+@keyframes movimiento {
+  from {
+    background-position: bottom left;
+  }
+  to {
+    background-position: top right;
   }
 }
 
-
-.capaGradient{
+.capaGradient {
   width: 100%;
   height: 100%;
   position: absolute;
-  /* background: -webkit-linear-gradient(left, black, #055aa5); */
-  background-color: rgba(255, 255, 255, 0.281);
-  opacity: 0.5;
+  background-color: rgba(0, 0, 0, 0.719);
+  opacity: 0.8;
 }
 
-.containerDetails{
+.containerDetails {
   width: 100%;
   max-width: 1200px;
-  height: 100%;
+  height: 100vh;
   position: relative;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .details img {
-  width: 500px;
+  width: 80%; /* Use percentage for responsive width */
+  max-width: 500px; /* Set a max-width for larger screens */
 }
 
-
-.details{
+.details {
   width: 100%;
   max-width: 1200px;
   position: relative;
-  top: 20px;
+  top: 5px;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-
-
-.details p{
-  margin-top: 10px;
-  font-size: 50px;
+.details p {
+  font-size: 2.5rem; /* Use rem for better scaling */
   font-weight: 100;
-  margin-left: 10px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.details button{
+.details button {
   padding: 10px 20px;
   width: 230px;
   font-size: 16px;
   background: none;
-  border-style: none;
   border: 1px solid white;
+  border-radius: 5px;
   color: white;
   margin-top: 20px;
   transition: background 300ms;
@@ -111,31 +108,23 @@
   margin-left: 10px;
 }
 
-.details button:hover{
+.details button:hover {
   background: white;
   color: black;
 }
 
-.btn{
+.btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-}
-
-/*Articulo*/
-
-main{
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
+  width: 100px
 }
 
 
-
-
-@media screen and (max-width: 500px){
+@media screen and (max-width: 768px){
   .details p{
-      font-size: 18px;
+      font-size: 25px;
   }
+
+
 }

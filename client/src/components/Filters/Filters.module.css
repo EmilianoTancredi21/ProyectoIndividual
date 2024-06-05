@@ -1,28 +1,83 @@
-.selectBox {
+   input {
+    background-color: #374151;
+    color: whitesmoke !important;
+    border-radius: 6px;
+    padding: 8px;
+    outline: none;
+  }
+  
+  .selectBox {
     padding: 8px;
     font-size: 16px;
-    border: 1px solid #ffffff;
+    border: 1px solid #111827;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    border-radius: 4px;
-    margin-bottom: 8px;
+    border-radius: 6px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #374151;
+    color: #e5e7eb;
+    outline: none;
   }
-
-  .containerSelect{
+  
+  .containerSelect {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
   }
-
-  .reset{
-    margin: 0;
-    background-color: rgb(255, 255, 255);
-    color: black;
+  
+  .reset {
+    border-radius: 6px;
+    padding: 8px 20px;
+    background-color: rgb(177, 28, 8);
+    color: white;
+    width: fit-content;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
-
-  .reset:hover{
-    background-color: rgb(185, 11, 11);
+  
+  .reset:hover {
+    background-color: black;
     color: white;
+    transition: 0.4s;
   }
+  
+  @media (max-width: 1024px) {
+
+    .containerSelect {
+      flex-direction: row;
+      align-items: first baseline;
+      padding: 0px;
+      gap: 5px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .containerSelect {
+      justify-content: center;
+    }
+  
+    .selectBox, .reset {
+      width: 100%;
+      margin: 10px 0;
+      text-align: center;
+    }
+  
+
+  }
+  
+  @media (max-width: 480px) {
+    .selectBox {
+      font-size: 14px;
+      width: 100%;
+    }
+  
+
+  
+    .containerSelect {
+      padding: 15px;
+    }
+  }
+  

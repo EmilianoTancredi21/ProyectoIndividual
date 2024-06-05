@@ -1,77 +1,166 @@
+.back {
+  background-image: url("https://res.cloudinary.com/dg8awhbvm/image/upload/v1717109222/formula-1-logo-uhd-4k-wallpaper_ozxanz.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.teams {
+  text-align: start;
+  font-weight: bold;
+  color: #d80d0d;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.noDrivers {
+  text-align: center;
+  font-size: 20px;
+  color: #ff0000;
+}
+
+.fullName {
+  font-weight: bold;
+  text-align: start;
+  font-size: 50px;
+  margin: 10px 0;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.detailDriver {
+  min-height: 85vh;
+  width: 95vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px; 
+}
+
 .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.651);
-    padding: 20px;
-    margin: 30px;
-    margin-top: 80px;
-    border-radius: 5px;
-    border: 2px solid rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  background-color: rgba(0, 0, 0, 0.651);
+  padding: 20px;
+  margin: 30px;
+  border-radius: 5px;
+}
+
+.containerImg {
+  width: 400px;
+  height: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 400px;
+  height: 640px;
+  object-fit: cover;
+}
+
+.titleID {
+  font-weight: bold;
+  color: #d80d0d;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  text-align: start;
+}
+
+.driverInfo {
+  text-align: center;
+  width: 50%;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: start;
+  color: #d80d0d;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.description {
+  text-align: start;
+  margin: 10px 0px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  max-height: 200px;
+  overflow: auto;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.buttonDetail {
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #b40c0c;
+}
+
+.subtitle {
+  font-weight: 200;
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
   }
-  
+
   .containerImg {
-    margin-right: 20px;
-  }
-  
-  .image {
-    max-width: 400px;
+    width: 100%;
     height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
   }
-  
+
+  .image {
+    width: 100%;
+    height: auto;
+  }
+
   .driverInfo {
-    text-align: center;
+    width: 100%;
   }
-  
+}
+
+@media (max-width: 768px) {
   .fullName {
-    font-size: 60px;
-    margin: 10px 0;
-    color: aliceblue;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-  }
-  
-  .title {
-    font-size: 40px;
-    margin: 5px 0;
-    color: aliceblue;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  
-  .description {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #afafaf;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  
-  .teams {
-    font-weight: bold;
-    color: #b40c0c;
     font-size: 30px;
-    margin-top: 10px;
-  }
-  
-  .noDrivers {
     text-align: center;
-    font-size: 20px;
-    color: #ff0000;
   }
 
-
-  .titleID{
-    color: aliceblue;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 20px;
+  .titleID, .title, .description, .teams {
+    font-size: 18px;
+    text-align: center;
   }
 
+  .buttonDetail {
+    width: 100%;
+    text-align: center;
+  }
+}
 
-.buttonDetail{
-  color: aliceblue;
+@media (max-width: 480px) {
+  .fullName {
+    font-size: 25px;
+  }
+
+  .titleID, .title, .description, .teams {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 10px;
+    margin: 15px;
+  }
 }
 
