@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import App from "../../../App";
 
-const URL = "https://pi-server-jyus.onrender.com";
+const URL = "http://localhost:3001";
 
 const noImage =
   "https://i.pinimg.com/736x/a4/fc/6c/a4fc6c0d3d05fe453cdbafba248ae20c.jpg";
@@ -34,51 +34,68 @@ const Details = () => {
   }, [id]);
 
   return (
-    <div className={styles.container}>
-      {driver && Object.keys(driver).length !== 0 ? (
-        <>
-          <div className={styles.containerImg}>
-            <img
-              src={driver.image?.url || driver.image || noImage}
-              alt="Driver"
-              className={styles.image}
-            />
-          </div>
-          <div className={styles.driverInfo}>
-            <h1 className={styles.fullName}>
-              {driver.name
-                ? `${driver.name.forename} ${driver.name.surname}`
-                : `${driver.forename} ${driver.surname}`}
-            </h1>
-            <h2 className={styles.title}>{driver.nationality}</h2>
-            <h2 className={styles.description}>
-              {driver.description || noDescription}
-            </h2>
-            <h2 className={styles.title}>{driver.dob}</h2>
-            <h2 className={styles.teams}>
-              Teams:{" "}
-              {driver.teams
-                ? driver.teams
-                : driver.Teams?.map((teams) => teams.name).join(", ")}
-            </h2>
-            <h2 className={styles.titleID}>Driver ID: {driver.id}</h2>
-            <div>
-              <button>
-                <Link
-                  to="/home"
-                  element={<App />}
-                  style={{ textDecoration: "none" }}
-                  className={styles.buttonDetail}
-                >
-                  Go back
-                </Link>
-              </button>
-            </div>
-          </div>
-        </>
-      ) : (
-        <h2 className={styles.noDrivers}>No drivers found.</h2>
-      )}
+    <div className={styles.back}>
+      <div className={styles.detailDriver}>
+        <div className={styles.container}>
+          {driver && Object.keys(driver).length !== 0 ? (
+            <>
+              <div className={styles.containerImg}>
+                <img
+                  src={driver.image?.url || driver.image || noImage}
+                  alt="Driver"
+                  className={styles.image}
+                />
+              </div>
+              <div className={styles.driverInfo}>
+                <h1 className={styles.fullName}>
+                  {driver.name
+                    ? `${driver.name.forename} ${driver.name.surname}`
+                    : `${driver.forename} ${driver.surname}`}
+                </h1>
+                <h2 className={styles.titleID}>
+                  Driver ID:{" "}
+                  <span className={styles.subtitle}>{driver.id}</span>
+                </h2>
+                <h2 className={styles.title}>
+                  Nationality:{" "}
+                  <span className={styles.subtitle}>{driver.nationality}</span>
+                </h2>
+                <h2 className={styles.title}>Description:</h2>
+                <h2 className={styles.description}>
+                  {driver.description || noDescription}
+                </h2>
+                <h2 className={styles.title}>
+                  Date of birth:{" "}
+                  <span className={styles.subtitle}>{driver.dob}</span>
+                </h2>
+                <h2 className={styles.teams}>
+                  Teams:{" "}
+                  <span className={styles.subtitle}>
+                    {driver.teams
+                      ? driver.teams
+                      : driver.Teams?.map((teams) => teams.name).join(", ")}
+                  </span>
+                </h2>
+
+                <div>
+                  <button>
+                    <Link
+                      to="/home"
+                      element={<App />}
+                      style={{ textDecoration: "none" }}
+                      className={styles.buttonDetail}
+                    >
+                      Go back
+                    </Link>
+                  </button>
+                </div>
+              </div>
+            </>
+          ) : (
+            <h2 className={styles.noDrivers}>No drivers found.</h2>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

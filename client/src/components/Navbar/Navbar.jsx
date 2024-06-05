@@ -1,47 +1,26 @@
 import styles from "../Navbar/Navbar.module.css";
-import SearchBar from "../SearchBar/SearchBar";
 import { Link } from "react-router-dom";
-import { useLocation } from 'react-router-dom';
-import App from "../../App"
-
+import App from "../../App";
 
 const Navbar = () => {
+  return (
+    <nav className={styles.navbar}>
+      <div className={styles.navbarLogo}>
+        <Link to="/">
+          <img
+            src="https://res.cloudinary.com/dg8awhbvm/image/upload/v1686419783/Proyecto%20JS%20vanilla/logo-f1-liberty-soymotor_un04ho.jpg"
+            alt="Logo"
+          />
+        </Link>
+      </div>
+      <div className={styles.navbarLinks}>
+        <Link to="/home" element={<App />} style={{ textDecoration: "none" }}>
+          HOME
+        </Link>
+        <Link to="/createDriver">MAKE DRIVER</Link>
+      </div>
+    </nav>
+  );
+};
 
-  const { pathname } = useLocation();
-
-    // return (
-    //   <nav className={styles.navbar}>
-    //     <div className={styles.navbarLogo}>
-    //     <Link to="/">
-    //       <img src="https://res.cloudinary.com/dg8awhbvm/image/upload/v1686419783/Proyecto%20JS%20vanilla/logo-f1-liberty-soymotor_un04ho.jpg" alt="Logo" />
-    //     </Link>
-    //     </div>
-    //     <div className={styles.navbarLinks}>
-    //       <Link to="/home" element={<App/>} style={{ textDecoration: 'none' }}>Home</Link>
-    //       <Link to="/createDriver">Make Driver</Link>
-    //     </div>
-    //     <div>
-    //     <SearchBar  />
-    //     </div>
-    //   </nav>
-    // );
-
-    return (
-      <nav className={styles.navbar}>
-        <div className={styles.navbarLogo}>
-          <Link to="/">
-            <img src="https://res.cloudinary.com/dg8awhbvm/image/upload/v1686419783/Proyecto%20JS%20vanilla/logo-f1-liberty-soymotor_un04ho.jpg" alt="Logo" />
-          </Link>
-        </div>
-          <div className={styles.navbarLinks}>
-            <Link to="/home" element={<App />} style={{ textDecoration: 'none' }}>Home</Link>
-            <Link to="/createDriver">Make Driver</Link>
-          </div>
-        <div>
-          {pathname === "/home" && <SearchBar />}
-        </div>
-      </nav>
-    );
-  }
-
-export default Navbar
+export default Navbar;
