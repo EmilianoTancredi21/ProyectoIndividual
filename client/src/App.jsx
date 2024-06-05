@@ -7,6 +7,7 @@ import Details from "./components/views/Details/Details";
 import { useLocation } from "react-router-dom";
 import Form from "./components/views/Form/Form";
 import NoUrl from "./components/404/NoUrl";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const { pathname } = useLocation();
@@ -21,6 +22,7 @@ function App() {
         <Route path="/createDriver" element={<Form />} />
         <Route path="*" element={<NoUrl />} />
       </Routes>
+      {pathname !== "/" && <Footer />}
     </div>
   );
 }
