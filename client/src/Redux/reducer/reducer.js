@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 import {
   GET_ALL_DRIVERS, //
   GET_DRIVER_BYNAME,
@@ -6,30 +8,18 @@ import {
   FILTER_BY_DOB,
   GET_FILTER_BY_TEAMS,
   GET_FILTER_CREATED_DRIVERS,
-  RESET_FILTER
-} from "../actions/actions"
+  RESET_FILTER,
+} from "../actions/actions";
 
 const initialState = {
   allDrivers: [],
   teams: [],
   driverFilters: [],
-  driversCopy: []
-}
-
-
-// Función auxiliar para verificar si un driver creado en la base de datos está asociado con el equipo seleccionado
-// const isDriverInTeam = (driver, teamName) => {
-//   if (driver.createInDb) {
-//     return driver.Teams.some(team => team.name === teamName);
-//   }
-//   return false;
-// };
-
-
+  driversCopy: [],
+};
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-
     case GET_ALL_DRIVERS:
       return {
         ...state,
@@ -52,8 +42,6 @@ const rootReducer = (state = initialState, action) => {
         driverFilters: filterOrigin,
       };
 
-
-
     case GET_DRIVER_BYNAME:
       return {
         ...state,
@@ -67,59 +55,42 @@ const rootReducer = (state = initialState, action) => {
         teams: action.payload,
       };
 
-
-  
-
     case FILTER_BY_DOB:
       const dobFilteredDrivers = [...state.driverFilters];
       if (action.payload === "BirthYear-asc") {
         return {
           ...state,
-          driverFilters: dobFilteredDrivers.sort((a, b) => a.dob.localeCompare(b.dob)),
+          driverFilters: dobFilteredDrivers.sort((a, b) =>
+            a.dob.localeCompare(b.dob)
+          ),
         };
       } else if (action.payload === "BirthYear-desc") {
         return {
           ...state,
-          driverFilters: dobFilteredDrivers.sort((a, b) => b.dob.localeCompare(a.dob)),
+          driverFilters: dobFilteredDrivers.sort((a, b) =>
+            b.dob.localeCompare(a.dob)
+          ),
         };
       }
 
-
-
-    // case GET_FILTER_BY_TEAMS:
-    //   const team = action.payload;
-    //   const filteredTeam = state.driverFilters.filter((t) => {
-    //     const teamsArray = t.teams ? t.teams.split(",").map((team) => team.trim()) : []
-    //     return teamsArray.includes(team);
-    //   });
-    
-    //   if (!filteredTeam || filteredTeam.length === 0) {
-    //     alert("No drivers with this team, please reset filters");
-    //   }
-      
-    //   return {
-    //     ...state,
-    //     driverFilters: filteredTeam,
-    // };
-
     case GET_FILTER_BY_TEAMS:
       const team = action.payload;
-      const filteredTeam = state.driverFilters.filter((t) => {    ///itero sobre cada filtro de conductor (t) en state.driverFilters y realizo una comprobación.
-        const teamsArray = t.Teams ? t.Teams.map(team => team.name) : []; ///: Si el filtro de conductor tiene un arreglo de equipos (t.Teams), se crea un nuevo arreglo teamsArray que contiene los nombres de los equipos. Si no hay un arreglo de equipos, se asigna un arreglo vacío.
-        const isDriverInTeamFromDb = t.createInDb && teamsArray.includes(team);///e verifica si el filtro de conductor fue creado en la base de datos (t.createInDb) y si el equipo proporcionado (team) se encuentra en teamsArray
+      const filteredTeam = state.driverFilters.filter((t) => {
+        ///itero sobre cada filtro de conductor (t) en state.driverFilters y realizo una comprobación.
+        const teamsArray = t.Teams ? t.Teams.map((team) => team.name) : []; ///: Si el filtro de conductor tiene un arreglo de equipos (t.Teams), se crea un nuevo arreglo teamsArray que contiene los nombres de los equipos. Si no hay un arreglo de equipos, se asigna un arreglo vacío.
+        const isDriverInTeamFromDb = t.createInDb && teamsArray.includes(team); ///e verifica si el filtro de conductor fue creado en la base de datos (t.createInDb) y si el equipo proporcionado (team) se encuentra en teamsArray
         const isDriverInTeamFromApi = t.teams && t.teams.includes(team);
         return isDriverInTeamFromDb || isDriverInTeamFromApi;
       });
-    
+
       if (!filteredTeam || filteredTeam.length === 0) {
-        alert("No drivers with this team, please reset filters");
+        toast.error("There are no drivers with the selected teams.");
       }
-      
+
       return {
         ...state,
         driverFilters: filteredTeam,
-    };
-
+      };
 
     case FILTER_DRIVER_ALP:
       const alphabeticFilteredDrivers = [...state.driverFilters];
@@ -142,7 +113,7 @@ const rootReducer = (state = initialState, action) => {
     case RESET_FILTER:
       return {
         ...state,
-        driverFilters: state.allDrivers
+        driverFilters: state.allDrivers,
       };
 
     default:
@@ -151,4 +122,3 @@ const rootReducer = (state = initialState, action) => {
 };
 
 export default rootReducer;
-
