@@ -14,7 +14,9 @@ const getAllDrivers = async (name) => {
     });
 
     // Obtener todos los conductores de la API
-    const response = await axios.get("http://localhost:5000/drivers");
+    const response = await axios.get(
+      "https://drivers-zmnv.onrender.com/drivers"
+    );
     const allDriversApi = response.data.map((driver) => ({
       id: driver.id,
       forename: driver.name && driver.name.forename ? driver.name.forename : "",

@@ -2,40 +2,36 @@ const axios = require("axios");
 const { Driver, Team } = require("../db.js");
 
 const getDriverById = async (id) => {
-    let driverById;
+  let driverById;
 
-    if (isNaN(id)) {
-
-        driverById = await Driver.findByPk(id,{
-            include: [
-                {
-                    model: Team,
-                    attributes: ["name"],
-                    through: {
-                        attributes: []
-                    }
-                }
-
-            ]
-        });
-        if (!driverById) { //no hay pilotos en la DB con es id
-            throw new Error(`Driver with ID ${id} not found in the database`);
-        }
-        
-    } else {
-        
-        try {
-            const response = await axios.get(`http://localhost:5000/drivers/${id}`);
-            driverById = response.data;
-        } catch (error) { //no hay pilotos en la API con ese id
-            throw new Error(`Driver with ID ${id} not found in the API`);
-        }
+  if (isNaN(id)) {
+    driverById = await Driver.findByPk(id, {
+      include: [
+        {
+          model: Team,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
+        },
+      ],
+    });
+    if (!driverById) {
+      //no hay pilotos en la DB con es id
+      throw new Error(`Driver with ID ${id} not found in the database`);
     }
-    return driverById;
-}
+  } else {
+    try {
+      const response = await axios.get(
+        `https://drivers-zmnv.onrender.com/drivers/${id}`
+      );
+      driverById = response.data;
+    } catch (error) {
+      //no hay pilotos en la API con ese id
+      throw new Error(`Driver with ID ${id} not found in the API`);
+    }
+  }
+  return driverById;
+};
 
 module.exports = getDriverById;
-
-
-
-
