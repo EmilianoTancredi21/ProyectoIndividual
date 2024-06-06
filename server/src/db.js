@@ -1,10 +1,3 @@
-// import pg from "pg";
-// const { Pool } = pg;
-
-// const pool = new Pool({
-//   connectionString: process.env.POSTGRES_URL,
-// });
-
 require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const { POSTGRES_URL } = process.env;
@@ -13,18 +6,18 @@ const fs = require("fs");
 const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
-const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/drivers`,
-  {
-    logging: false,
-    native: false,
-  }
-);
+// const sequelize = new Sequelize(
+//   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/drivers`,
+//   {
+//     logging: false,
+//     native: false,
+//   }
+// );
 
-// const sequelize = new Sequelize(POSTGRES_URL, {
-//   logging: false,
-//   native: false,
-// });
+const sequelize = new Sequelize(POSTGRES_URL, {
+  logging: false,
+  native: false,
+});
 
 const basename = path.basename(__filename);
 
@@ -59,5 +52,3 @@ module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };
-
-// export { pool };
