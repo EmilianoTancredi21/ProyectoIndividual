@@ -22,9 +22,7 @@ const getDriverById = async (id) => {
     }
   } else {
     try {
-      const response = await axios.get(
-        `https://drivers-zmnv.onrender.com/drivers/${id}`
-      );
+      const response = await axios.get(`http://localhost:5000/drivers/${id}`);
       driverById = response.data;
     } catch (error) {
       //no hay pilotos en la API con ese id

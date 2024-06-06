@@ -6,9 +6,7 @@ const getAllTeams = async () => {
 
   if (!allTeamsDb.length) {
     try {
-      const response = await axios.get(
-        "https://drivers-zmnv.onrender.com/drivers"
-      );
+      const response = await axios.get("http://localhost:5000/drivers");
       const drivers = response.data;
 
       const driverTeams = drivers
